@@ -1,33 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('header'); -%>
+<div class="box" id="heading">
+    <h1> It's <%= kindofday%>!</h1>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo LIST</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+<div class="box">
 
-<body>
-    <div class="box" id="heading">
-        <h1> It's <%= kindofday%>!</h1>
+    <% for(var i=0;i<lists.length;i++){ %>
+    <div class="item">
+        <input type="checkbox">
+        <p> <%=lists[i]%> </p>
     </div>
-
-    <div class="box">
-
-        <% for(var i=0;i<lists.length;i++){ %>
-        <div class="item">
-            <input type="checkbox">
-            <p> <%=lists[i]%> </p>
-        </div>
-        <% } %>
+    <% } %>
 
 
-        <form class="item" action="/" method="post">
-            <input type="text" name="newitem" placeholder="New task" autocomplete="off">
-            <button type="submit"> + </button>
-        </form>
-    </div>
-</body>
-
-</html>
+    <form class="item" action="/" method="post">
+        <input type="text" name="newitem" placeholder="New task" autocomplete="off">
+        <button type="submit"> + </button>
+        <%- include('footer'); -%>
